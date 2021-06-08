@@ -1,0 +1,26 @@
+<body>
+    <table>
+        <thead>
+          <tr>
+            <th>name</th>
+            <th>career</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let course of courses">
+              <td>{{ course.name }}</td>
+              <td>{{ course.career }}</td>
+              <td> <button (click)="deleteCourse(course.id)"> Delete</button></td>
+             <td> <a [routerLink]="['/detail',course.id]" routerLinkActive="router-link-active"> details </a> </td>
+             <td> <a [routerLink]="['/update',course.id]" routerLinkActive="router-link-active"> update </a> </td>
+          </tr>
+        </tbody>
+      </table>
+      <form (ngSubmit) = "createCourse()">
+          <input type="text" placeholder="name" name="name" [(ngModel)] = "form.name">
+          <input type="text" placeholder="code" name="code" [(ngModel)] = "form.code">
+          <input type="text" placeholder="career" name="career" [(ngModel)] = "form.career">
+          <input type="int" placeholder="credits" name="credits" [(ngModel)] = "form.credits">
+          <input type="submit">
+      </form>
+</body>
